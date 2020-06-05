@@ -1,8 +1,11 @@
 # ShortestAvoidancePathFinder
 
 A powerful obstacle avoidance shortest path finder. It contains two ways of pathfinding which are direct or along obstacles pathfinding.
+When the start or end point of the path is inside the obstacle, the appropriate break through behavior can be selected for processing.
 
 In addition, the project includes a visualization tool.
+
+![img](https://github.com/eamoon/ShortestAvoidancePathFinder/blob/master/Img/pathgif.gif?raw=true)
 
 ## Attribute
 
