@@ -51,7 +51,7 @@ namespace PathFinder
             get => bufferDistance;
             set 
             {
-                bufferDistance = value < minBufferDistance ? minBufferDistance : value;
+                bufferDistance = Math.Max(value, minBufferDistance);
                 BufferParameter.MitreLimit = defaultMitreLimit;
             } 
         }
@@ -275,12 +275,6 @@ namespace PathFinder
             Coordinate preObstaclePoint = null;
             foreach (var obstaclePoint in angleOrderedObstaclePoints)
             {
-                //if (originPoint.Equals2D(new Coordinate(65, 685.6), 0.01) &&
-                //    obstaclePoint.Point.Equals2D(new Coordinate(40.2, 83.2), 0.01))
-                //{
-
-                //}
-
                 var visible = false;
                 var rotateLineSegment = new LineSegment(originPoint, obstaclePoint.Point);
                 var rotateLine = new LineString(new Coordinate[] { rotateLineSegment.P0, rotateLineSegment.P1 });
@@ -439,7 +433,7 @@ namespace PathFinder
                                     {
                                         //AddToGraph(obstaclePoint, obstacleDatas.Points.First(op => op.Point.Equals2D(nearestPoint, tol)));
                                         AddToGraph(obstaclePoint, new ObstacleGraphPoint(nearestPoint));
-                                        // 待重构
+                                        // ready to refactor
                                     }
                                     else
                                     {

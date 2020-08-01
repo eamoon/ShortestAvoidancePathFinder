@@ -50,7 +50,7 @@ namespace Test
         private Point prePoint;
         private Vector moveVector;
 
-        public override string StateTip => "选择";
+        public override string StateTip => "Select";
 
         public SelectCanvasState(DrawingCanvas canvas) : base(canvas)
         {
@@ -143,7 +143,7 @@ namespace Test
             if (e.ChangedButton != MouseButton.Left)
                 return;
 
-            Canvas.StateInfo.Tip = "绘制中, 双击结束";
+            Canvas.StateInfo.Tip = "Drawing... double click to end";
 
             var point = e.GetPosition(Canvas);
             point = AlignPointToXY(point);
@@ -199,7 +199,7 @@ namespace Test
 
     public class AddPolygonCanvasState : AddCanvasState
     {
-        public override string StateTip => "绘制多边形";
+        public override string StateTip => "Drawing Polygon";
 
         public AddPolygonCanvasState(DrawingCanvas canvas) : base(canvas)
         {
@@ -284,7 +284,7 @@ namespace Test
 
     public class AddLineStringCanvasState : AddCanvasState
     {
-        public override string StateTip => "绘制折线";
+        public override string StateTip => "Drawing PolyLine";
 
         public AddLineStringCanvasState(DrawingCanvas canvas) : base(canvas)
         {
@@ -325,7 +325,7 @@ namespace Test
     {
         private Point prePoint;
 
-        public override string StateTip => "绘制点";
+        public override string StateTip => "Drawing Point";
 
         public AddPontCanvasState(DrawingCanvas canvas) : base(canvas)
         {

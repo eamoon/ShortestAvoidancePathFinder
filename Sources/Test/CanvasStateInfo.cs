@@ -24,7 +24,7 @@ namespace Test
             }
         }
 
-        private string tip = "就绪";
+        private string tip = "Ready";
         public string Tip
         {
             get => tip;

@@ -2,15 +2,7 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
 using System.Windows.Threading;
 using Microsoft.Win32;
 using NetTopologySuite.Geometries;
@@ -21,7 +13,7 @@ using PathFinder;
 namespace Test
 {
     /// <summary>
-    /// MainWindow.xaml 的交互逻辑
+    /// MainWindow.xaml
     /// </summary>
     public partial class MainWindow : Window
     {
@@ -170,7 +162,7 @@ namespace Test
 
             var dialog = new SaveFileDialog();
             dialog.DefaultExt = "nts";
-            dialog.Filter = "NTS几何文件|*.nts";
+            dialog.Filter = "NTS Geometry File|*.nts";
             if (dialog.ShowDialog() == true)
             {
                 using (var stream = dialog.OpenFile())
@@ -190,7 +182,7 @@ namespace Test
         private void LoadClick(object sender, RoutedEventArgs e)
         {
             var dialog = new OpenFileDialog();
-            dialog.Filter = "NTS几何文件|*.nts";
+            dialog.Filter = "NTS Geometry File|*.nts";
             if (dialog.ShowDialog() == true)
             {
                 using (var stream = dialog.OpenFile())
@@ -215,7 +207,8 @@ namespace Test
                                 canvas.AddVisual(lineString);
                             }
 
-                            var points = PointExtracter.GetPoints(geom).OfType<NetTopologySuite.Geometries.Point>().Select(p => new DrawingPoint(new System.Windows.Point(p.X, p.Y)));
+                            var points = PointExtracter.GetPoints(geom).OfType<NetTopologySuite.Geometries.Point>()
+                                .Select(p => new DrawingPoint(new System.Windows.Point(p.X, p.Y)));
                             foreach (var point in points)
                             {
                                 point.Render(DrawingCanvas.DefaultPen);
@@ -225,7 +218,7 @@ namespace Test
                     }
                     catch
                     {
-                        MessageBox.Show("读取失败!文件可能已被损坏!");
+                        MessageBox.Show("Read failed! The file may have been corrupted!");
                     }
                 }
             }

@@ -51,7 +51,7 @@
                         </StackPanel>
                         <StackPanel Orientation="Horizontal" Margin="5">
                             <TextBlock Text="BufferDistance:" Margin="5, 0" VerticalAlignment="Center"/>
-                            <TextBox Width="120" Height="22" Text="{Binding BufferDistance}" VerticalAlignment="Center"/>
+                            <TextBox Width="120" Height="22" Text="{Binding BufferDistance}" VerticalAlignment="Center" VerticalContentAlignment="Center"/>
                         </StackPanel>
                         <StackPanel Orientation="Horizontal" Margin="5">
                             <TextBlock Text="BreakThrough:" Margin="5, 0" VerticalAlignment="Center"/>
